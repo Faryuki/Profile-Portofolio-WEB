@@ -78,13 +78,15 @@ export default function AboutSection() {
               grow as a developer in a collaborative environment.
             </p>
             <a
-              href="/CV-Dhio.pdf"
-              download
+              href="https://drive.google.com/file/d/1fJcL_KVYDZkFzgSa_N9dkkLNC4eHUCjj/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 mt-4 px-6 py-2 bg-indigo-600 text-white font-medium rounded hover:bg-indigo-700 transition"
             >
               <FontAwesomeIcon icon={faDownload} className="text-white" />
               Download CV
             </a>
+
           </div>
         </div>
 
