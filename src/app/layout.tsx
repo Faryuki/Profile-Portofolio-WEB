@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import "../lib/fontawesome"; // path-nya sesuaikan kalau pakai folder lain
 import "./globals.css";
 
 const geistSans = Geist({
@@ -24,6 +25,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+          integrity="sha512-Bxzr/SBB36GHEu+oyJqlzAGX0u+8RSBhg0C0rHx4t4pXnJApus0z7vHl9+SmGIX9qk+XgISAGUk2E8CtuAk9cA=="
+          crossOrigin="anonymous"
+          referrerPolicy="no-referrer"
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
