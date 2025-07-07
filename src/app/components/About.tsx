@@ -59,7 +59,7 @@ export default function AboutSection() {
               Hi, I'm Dhio Zahwan Aryasetyo 👋
             </h3>
             <p>
-              I’m an Informatics undergraduate at Universitas Pembangunan
+              I'm an Informatics undergraduate at Universitas Pembangunan
               Nasional Veteran Jakarta with a strong passion for web
               development, mobile development, and cybersecurity. I enjoy
               building both frontend and backend systems, and I actively explore
@@ -67,7 +67,7 @@ export default function AboutSection() {
               architecture.
             </p>
             <p>
-              Over the past semesters, I’ve worked on various dynamic websites,
+              Over the past semesters, I've worked on various dynamic websites,
               RESTful APIs, and mobile apps using technologies like Laravel,
               Next.js, Express.js, and Java. I also participate in Capture The
               Flag (CTF) challenges to sharpen my cybersecurity skills and
