@@ -78,7 +78,7 @@ export default function AboutSection() {
               grow as a developer in a collaborative environment.
             </p>
             <a
-              href="/cv-dhio.pdf"
+              href="/CV-Dhio.pdf"
               download
               className="inline-flex items-center gap-2 mt-4 px-6 py-2 bg-indigo-600 text-white font-medium rounded hover:bg-indigo-700 transition"
             >
