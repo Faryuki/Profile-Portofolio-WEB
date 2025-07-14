@@ -20,11 +20,11 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         scrolled ? 'bg-white shadow-md' : 'bg-transparent'
       }`}
     >
-      <div className="w-full px-4 sm:px-6 py-4 flex justify-between items-center">
+      <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
         <span
           className={`font-bold text-2xl transition ${
             scrolled ? 'text-black' : 'text-white'
@@ -33,7 +33,7 @@ export default function Navbar() {
           Dhio
         </span>
 
-        {/* Desktop Nav */}
+        {/* Desktop menu */}
         <div className="hidden md:flex space-x-6 text-lg font-medium">
           {navLinks.map((item) => (
             <a
@@ -50,23 +50,23 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* Mobile Menu Icon */}
-        <div className="md:hidden">
+        {/* Mobile menu button */}
+        <div className="md:hidden flex">
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             className={`text-2xl transition ${
               scrolled ? 'text-black' : 'text-white'
             }`}
-            aria-label="Toggle Menu"
+            aria-label="Toggle menu"
           >
             {menuOpen ? <FaTimes /> : <FaBars />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Fullscreen Menu */}
+      {/* Mobile menu overlay */}
       {menuOpen && (
-        <div className="fixed inset-0 z-40 bg-black bg-opacity-90 flex flex-col items-center justify-center space-y-8 md:hidden">
+        <div className="md:hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-90 z-40 flex flex-col items-center justify-center space-y-8">
           {navLinks.map((item) => (
             <a
               key={item}
