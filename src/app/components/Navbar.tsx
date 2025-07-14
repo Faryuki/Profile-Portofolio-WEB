@@ -20,11 +20,12 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled ? 'bg-white shadow-md' : 'bg-transparent'
       }`}
     >
-      <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
+        {/* Logo */}
         <span
           className={`font-bold text-2xl transition ${
             scrolled ? 'text-black' : 'text-white'
@@ -33,7 +34,7 @@ export default function Navbar() {
           Dhio
         </span>
 
-        {/* Desktop menu */}
+        {/* Desktop Nav */}
         <div className="hidden md:flex space-x-6 text-lg font-medium">
           {navLinks.map((item) => (
             <a
@@ -50,35 +51,20 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* Mobile menu button */}
-        <div className="md:hidden flex">
+        {/* Mobile Hamburger */}
+        <div className="md:hidden">
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             className={`text-2xl transition ${
               scrolled ? 'text-black' : 'text-white'
             }`}
-            aria-label="Toggle menu"
+            aria-label="Toggle Menu"
           >
             {menuOpen ? <FaTimes /> : <FaBars />}
           </button>
         </div>
       </div>
-
-      {/* Mobile menu overlay */}
-      {menuOpen && (
-        <div className="md:hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-90 z-40 flex flex-col items-center justify-center space-y-8">
-          {navLinks.map((item) => (
-            <a
-              key={item}
-              href={`#${item.toLowerCase()}`}
-              onClick={() => setMenuOpen(false)}
-              className="text-white text-2xl hover:text-blue-400 transition"
-            >
-              {item}
-            </a>
-          ))}
-        </div>
-      )}
     </nav>
+
   );
 }
