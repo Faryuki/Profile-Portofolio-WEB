@@ -16,7 +16,7 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navItems = ['Home', 'About', 'Skills', 'Projects', 'Contact'];
+  const navLinks = ['Home', 'About', 'Skills', 'Projects', 'Contact'];
 
   return (
     <nav
@@ -24,8 +24,7 @@ export default function Navbar() {
         scrolled ? 'bg-white shadow-md' : 'bg-transparent'
       }`}
     >
-      <div className="max-w-6xl mx-auto px-6 py-5 flex justify-between items-center">
-        {/* Logo */}
+      <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
         <span
           className={`font-bold text-2xl transition ${
             scrolled ? 'text-black' : 'text-white'
@@ -34,9 +33,9 @@ export default function Navbar() {
           Dhio
         </span>
 
-        {/* Desktop Nav */}
+        {/* Desktop menu */}
         <div className="hidden md:flex space-x-6 text-lg font-medium">
-          {navItems.map((item) => (
+          {navLinks.map((item) => (
             <a
               key={item}
               href={`#${item.toLowerCase()}`}
@@ -51,26 +50,29 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* Mobile Menu Button */}
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          className={`md:hidden text-2xl transition ${
-            scrolled ? 'text-black' : 'text-white'
-          }`}
-        >
-          {menuOpen ? <FaTimes /> : <FaBars />}
-        </button>
+        {/* Mobile menu button */}
+        <div className="md:hidden">
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className={`text-2xl transition ${
+              scrolled ? 'text-black' : 'text-white'
+            }`}
+            aria-label="Toggle menu"
+          >
+            {menuOpen ? <FaTimes /> : <FaBars />}
+          </button>
+        </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile menu overlay */}
       {menuOpen && (
-        <div className="md:hidden bg-white shadow-md px-6 py-4 space-y-4">
-          {navItems.map((item) => (
+        <div className="md:hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-90 z-40 flex flex-col items-center justify-center space-y-8">
+          {navLinks.map((item) => (
             <a
               key={item}
               href={`#${item.toLowerCase()}`}
-              onClick={() => setMenuOpen(false)} // Tutup menu saat diklik
-              className="block text-gray-800 text-lg font-medium hover:text-blue-600"
+              onClick={() => setMenuOpen(false)}
+              className="text-white text-2xl hover:text-blue-400 transition"
             >
               {item}
             </a>
