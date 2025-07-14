@@ -3,6 +3,8 @@
 import { useEffect, useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 
+const navLinks = ['Home', 'About', 'Skills', 'Projects', 'Contact'];
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -11,16 +13,13 @@ export default function Navbar() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = ['Home', 'About', 'Skills', 'Projects', 'Contact'];
-
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         scrolled ? 'bg-white shadow-md' : 'bg-transparent'
       }`}
     >
@@ -64,7 +63,24 @@ export default function Navbar() {
           </button>
         </div>
       </div>
-    </nav>
 
+      {/* Mobile Menu Overlay */}
+      {menuOpen && (
+        <div className="md:hidden bg-white shadow-md">
+          <div className="px-4 py-4 flex flex-col space-y-4 text-center">
+            {navLinks.map((item) => (
+              <a
+                key={item}
+                href={`#${item.toLowerCase()}`}
+                onClick={() => setMenuOpen(false)}
+                className="text-black hover:text-blue-600 font-medium"
+              >
+                {item}
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+    </nav>
   );
 }
