@@ -17,18 +17,19 @@ import {
   faDownload,
 } from "@fortawesome/free-solid-svg-icons";
 
-export default function AboutSection() {
-  const skills = [
-    { name: "Laravel", icon: faCode },
-    { name: "Python", icon: faPython },
-    { name: "Java", icon: faJava },
-    { name: "JavaScript", icon: faJs },
-    { name: "Firebase", icon: faGoogle },
-    { name: "Android Studio", icon: faAndroid },
-    { name: "Kali Linux", icon: faShieldAlt },
-    { name: "Cyber Tools", icon: faBug },
-  ];
+const experienceList = [
+  { img: "/experience/ksm1.jpg", title: "Research and Development Staff at KSM CyberSecurity" },
+  { img: "/experience/ukm1.jpg", title: "Vice President of Public Relations at UKM Cuvetja" },
+  { img: "/experience/bootcamp1.jpg", title: "Head of Assistant Mentors by KSM CyberSecurity" },
+  { img: "/experience/ksm2.jpg", title: "Research and Development Staff at KSM CyberSecurity" },
+  { img: "/experience/ukm2.jpg", title: "Vice President of Public Relations at UKM Cuvetja" },
+  { img: "/experience/bootcamp2.jpg", title: "Head of Assistant Mentors by KSM CyberSecurity" },
+  { img: "/experience/ksm3.jpg", title: "Research and Development Staff at KSM CyberSecurity" },
+  { img: "/experience/ukm3.jpg", title: "Vice President of Public Relations at UKM Cuvetja" },
+  { img: "/experience/bootcamp3.jpg", title: "Head of Assistant Mentors at Bootcamp by KSM CyberSecurity" },
+];
 
+export default function AboutSection() {
   return (
     <section id="about" className="bg-white py-20 px-6">
       <div className="max-w-6xl mx-auto">
@@ -36,9 +37,8 @@ export default function AboutSection() {
           About Me
         </h2>
 
-        {/* About Section */}
+        {/* About Description */}
         <div className="flex flex-col md:flex-row items-center gap-10 mb-16">
-          {/* Foto dengan animasi */}
           <motion.div
             initial={{ x: -100, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
@@ -53,7 +53,6 @@ export default function AboutSection() {
             />
           </motion.div>
 
-          {/* Deskripsi */}
           <div className="text-gray-800 md:w-2/3 space-y-4">
             <h3 className="text-xl font-semibold">
               Hi, I'm Dhio Zahwan Aryasetyo 👋
@@ -86,33 +85,42 @@ export default function AboutSection() {
               <FontAwesomeIcon icon={faDownload} className="text-white" />
               Download CV
             </a>
-
           </div>
         </div>
 
-        {/* Skills Section with Animations */}
-        <motion.div
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 text-center"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-        >
-          {skills.map((skill, i) => (
+        {/* Experience Section */}
+        <motion.div className="mt-20" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1 }}>
+          <h2 className="text-2xl font-bold text-center text-gray-900 mb-6">
+            Experience
+          </h2>
+
+          <div className="overflow-hidden relative">
             <motion.div
-              key={skill.name}
-              className="flex flex-col items-center bg-gray-100 py-4 rounded-lg shadow hover:bg-gray-200 transition"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.2, duration: 0.6 }}
-              viewport={{ once: true }}
+              className="flex gap-6 w-max"
+              animate={{ x: ["0%", "-50%"] }} 
+              transition={{ duration: 30, ease: "linear", repeat: Infinity }}
             >
-              <FontAwesomeIcon
-                icon={skill.icon}
-                className="text-3xl text-indigo-500 mb-2"
-              />
-              <p className="font-medium text-gray-800">{skill.name}</p>
+              {[...experienceList, ...experienceList].map((exp, idx) => (
+                <div
+                  key={idx}
+                  className="relative w-[300px] shrink-0 rounded-xl overflow-hidden shadow-lg"
+                >
+                  <Image
+                    src={exp.img}
+                    alt={exp.title}
+                    width={300}
+                    height={200}
+                    className="object-cover w-full h-60"
+                  />
+                  <div className="absolute top-0 left-0 w-full h-full bg-opacity-30 flex items-start justify-center p-3">
+                    <p className="text-sm font-semibold text-white text-center backdrop-blur-sm bg-opacity-10 rounded-md">
+                      {exp.title}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </motion.div>
-          ))}
+          </div>
         </motion.div>
       </div>
     </section>

@@ -29,7 +29,7 @@ export default function Navbar() {
           Dhio
         </span>
         <div className="space-x-6 text-lg font-medium">
-          {['Home', 'About', 'Projects', 'Contact'].map((item) => (
+          {['Home', 'About', 'Skills', 'Projects', 'Contact'].map((item) => (
             <a
               key={item}
               href={`#${item.toLowerCase()}`}

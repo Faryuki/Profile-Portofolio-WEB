@@ -10,6 +10,7 @@ export default function Hero() {
       id="home"
       className="min-h-screen flex flex-col md:flex-row items-center justify-center gap-12 px-6 bg-gradient-to-b from-[#0f0f0f] via-[#1a1a1a] to-[#2e2e2e] text-white"
     >
+      
       {/* Foto dengan animasi */}
       <motion.div
         className="w-[250px] h-[250px] relative rounded-full overflow-hidden shadow-lg border-4 border-blue-600"
@@ -47,6 +48,16 @@ export default function Hero() {
           viewport={{ once: true }}
         >
           Cyber Security Analyst & Android/Web Developer
+        </motion.p>
+
+        <motion.p
+          className="text-lg italic text-gray-300 mb-4"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6, duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          "I'm not saying I'm a superhero, but I do fix problems that no one else can see. My cape is just a hoodie."
         </motion.p>
 
         <motion.a

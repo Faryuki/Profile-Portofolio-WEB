@@ -12,6 +12,7 @@ const projects = [
     thumbnail: "/images/project1-1.jpg",
     images: ["/images/project1-1.jpg", "/images/project1-2.jpg", "/images/project1-3.jpg", "/images/project1-4.jpg", "/images/project1-5.jpg"],
     type: "web",
+    link: "https://github.com/Faryuki/Profile-Portofolio-WEB",
   },
   {
     title: "SMART",
@@ -19,6 +20,7 @@ const projects = [
     thumbnail: "/images/project2-1.jpg",
     images: ["/images/project2-1.jpg", "/images/project2-2.jpg", "/images/project2-3.jpg", "/images/project2-4.jpg", "/images/project2-5.jpg", "/images/project2-6.jpg", "/images/project2-7.jpg", "/images/project2-8.jpg", "/images/project2-9.jpg", "/images/project2-10.jpg", "/images/project2-11.jpg", "/images/project2-12.jpg"],
     type: "android",
+    link: "https://github.com/Faryuki/SMART",
   },
   {
     title: "File Integrity Verifier",
@@ -26,6 +28,7 @@ const projects = [
     thumbnail: "/images/project3-1.jpg",
     images: ["/images/project3-1.jpg", "/images/project3-2.jpg", "/images/project3-3.jpg", "/images/project3-4.jpg", "/images/project3-5.jpg", "/images/project3-6.jpg"],
     type: "web",
+    link: "https://github.com/Faryuki/File_Integrity_Verifier",
   },
   {
     title: "Hotel Reservation System",
@@ -35,11 +38,11 @@ const projects = [
     type: "web",
   },
   {
-    title: "Pemula Travel",
-    description: "An online ticket booking website built using React.js to simplify the process of finding and purchasing event tickets. It features a user-friendly interface with seat selection, booking history, and real-time availability. Designed with responsiveness in mind, the platform offers a smooth experience across devices.",
+    title: "CTF Write Up",
+    description: "This section highlights my practical experience in Capture The Flag (CTF) challenges. Each writeup details my approach to identifying and exploiting vulnerabilities, demonstrating my understanding of common web security flaws and mitigation techniques.",
     thumbnail: "/images/project5-1.jpg",
-    images: ["/images/project5-1.jpg", "/images/project5-2.jpg", "/images/project5-3.jpg", "/images/project5-4.jpg", "/images/project5-5.jpg", "/images/project5-6.jpg", "/images/project5-7.jpg", "/images/project5-8.jpg", "/images/project5-9.jpg", "/images/project5-10.jpg"],
-    type: "web",
+    images: ["/images/project5-1.jpg"],
+    link: "https://github.com/Faryuki/CTF_Writeups"
   },
   {
     title: "SkillCheck",
@@ -47,6 +50,7 @@ const projects = [
     thumbnail: "/images/project6-1.jpg",
     images: ["/images/project6-1.jpg", "/images/project6-2.jpg", "/images/project6-3.jpg", "/images/project6-4.jpg", "/images/project6-5.jpg", "/images/project6-6.jpg", "/images/project6-7.jpg", "/images/project6-8.jpg", "/images/project6-9.jpg", "/images/project6-10.jpg"],
     type: "java",
+    link: "https://github.com/Faryuki/SkillCheck",
   },
   // Tambahkan project lainnya
 ];
@@ -55,7 +59,7 @@ export default function Project() {
   const [selectedProject, setSelectedProject] = useState<any>(null);
 
   return (
-    <section id="projects" className="bg-gray-100 py-20 px-6">
+    <section id="projects" className="bg-white py-20 px-6">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">
           My Projects
@@ -84,15 +88,28 @@ export default function Project() {
               <div className="p-4" >
                 <h3 className="text-xl font-semibold">{project.title}</h3>
                 <p className="text-gray-600 mt-2">{project.description}</p>
-                <div className="mt-4 flex justify-center">
-                  <button
-                    onClick={() => setSelectedProject(project)}
-                    className="px-5 py-2 bg-blue-600 text-white font-semibold rounded-full hover:bg-blue-700 transition duration-300 shadow-md"
-                  >
-                    See More
-                  </button>
+                <div className="mt-4 flex justify-center gap-3">
+                  {/* Jika ada type tampilkan see more */}
+                  {project.type && (
+                    <button
+                      onClick={() => setSelectedProject(project)}
+                      className="px-5 py-2 bg-blue-600 text-white font-semibold rounded-full hover:bg-blue-700 transition duration-300 shadow-md"
+                    >
+                      See More
+                    </button>
+                  )}
+                  {/* Jika ada link, tampilkan tombol View on GitHub */}
+                  {project.link && (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-5 py-2 bg-gray-700 text-white font-semibold rounded-full hover:bg-gray-800 transition duration-300 shadow-md"
+                    >
+                      View on GitHub
+                    </a>
+                  )}
                 </div>
-
               </div>
             </motion.div>
           ))}

@@ -47,7 +47,7 @@ export default function Contact() {
   return (
     <motion.section
       id="contact"
-      className="bg-white py-40"
+      className="bg-gray-100 py-40"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
