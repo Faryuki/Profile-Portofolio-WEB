@@ -31,5 +31,6 @@ html {
 body {
   background-color: #0f0f0f; /* warna sama kayak hero from-gradient */
   color: rgb(0, 0, 0);
+  overflow-x: hidden;
 }
 
