@@ -45,7 +45,7 @@ export default function AboutSection() {
             transition={{ duration: 0.8 }}
           >
             <Image
-              src="/profil.jpg"
+              src="/profill.png"
               alt="Foto Dhio"
               width={280}
               height={280}
